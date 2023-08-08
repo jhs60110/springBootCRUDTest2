@@ -10,7 +10,7 @@
 <body>
 
 <div id="returnForm">
-    <h3>안녕하세요 해수 보드 입니다. ❤️</h3>
+    <h3>안녕하세요 4조 보드 입니다. ❤️</h3>
     <hr>
         <div class="mb-3">
             <label class="form-label">title</label>
@@ -23,7 +23,7 @@
         </div>
         <div style="float: right;">
             <button th:onclick="delCommunity()" class="btn btn-danger">삭제</button>
-            <a th:href="@{/hesu/update(no=${community.no})}" class="btn btn-primary">수정</a>
+            <a th:href="@{/four/update(no=${community.no})}" class="btn btn-primary">수정</a>
         </div>
 </div>
 
@@ -39,7 +39,7 @@
 
         // 자바 스크립트에서 폼 만들어 보낼때 action에 타임리프 문법을 사용하면 작동하지 않는 이슈가 있었읍니다. (현웅이가 찾아줌)
         const formHtml = `
-           <form id="delForm" action="/hesu/delete" method="get">
+           <form id="delForm" action="/four/delete" method="get">
                         <input id="no" name="no" value="${noo}">
                     </form>`;
         const doc = new DOMParser().parseFromString(formHtml, 'text/html');

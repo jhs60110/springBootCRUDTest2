@@ -10,9 +10,9 @@
 <body>
 
 <div id="returnForm">
-    <h3>안녕하세요 해수 보드 입니다. ❤️</h3>
+    <h3>안녕하세요 4조 보드 입니다. ❤️</h3>
     <hr>
-    <form action="/hesu/insert" method="post">
+    <form action="/four/insert" method="post">
         <div class="mb-3">
             <label class="form-label">title</label>
             <textarea  class="form-control" th:name="title"></textarea>
@@ -23,7 +23,7 @@
             <textarea  class="form-control" th:name="content"></textarea>
         </div>
         <div style="float: right;">
-            <a th:href="@{/hesu/all}" class="btn btn-danger">삭제</a>
+            <a th:href="@{/four/all}" class="btn btn-danger">삭제</a>
             <button onclick="inputCommunity()" class="btn btn-primary">등록</button>
         </div>
     </form>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hesu")
+@RequestMapping("/four")
 public class CommunityController {
     @Autowired
     ICommunityService communityService;
@@ -28,7 +28,9 @@ public class CommunityController {
 
     @GetMapping("/detail")
     public String selectACommunity(@RequestParam("no") int no, Model model) {
+
         Community community = communityService.selectACommunity(no);
+
         model.addAttribute(community);
         return "hesuDetail";
     }
