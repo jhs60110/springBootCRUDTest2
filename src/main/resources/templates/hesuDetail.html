@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/hesuDetail.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="returnForm">
+    <h3>안녕하세요 해수 보드 입니다. ❤️</h3>
+    <hr>
+        <div class="mb-3">
+            <label class="form-label">title</label>
+            <textarea disabled class="form-control" th:text="${community.title}" th:name="title"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">content</label>
+            <textarea disabled class="form-control" th:text="${community.content}" th:name="content"></textarea>
+        </div>
+        <div style="float: right;">
+            <button th:onclick="delCommunity()" class="btn btn-danger">삭제</button>
+            <a th:href="@{/hesu/update(no=${community.no})}" class="btn btn-primary">수정</a>
+        </div>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    function delCommunity() {
+
+        const noo = /*[[${community.no}]]*/;
+        console.log(noo);
+        if (!confirm('게시글을 삭제할까요?')) {
+            return false;
+        }
+
+        // 자바 스크립트에서 폼 만들어 보낼때 action에 타임리프 문법을 사용하면 작동하지 않는 이슈가 있었읍니다. (현웅이가 찾아줌)
+        const formHtml = `
+           <form id="delForm" action="/hesu/delete" method="get">
+                        <input id="no" name="no" value="${noo}">
+                    </form>`;
+        const doc = new DOMParser().parseFromString(formHtml, 'text/html');
+        const form = doc.body.firstChild;
+        document.body.append(form);
+
+        document.getElementById('delForm').submit();
+
+    }
+
+    /*]]>*/
+</script>
+
+</body>
+</html>

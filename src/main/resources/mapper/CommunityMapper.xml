@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hesuCRUD.repository.ICommunityRepository">
+    <insert id="insertCommunity" parameterType="String">
+		<![CDATA[
+        insert into community
+        values (com_seq.NEXTVAL, #{title}, #{content})
+        ]]>
+	</insert>
+
+    <select id="selectAllCommunity" resultType="com.example.hesuCRUD.model.Community">
+		<![CDATA[
+        SELECT no AS "no", title AS "title", content AS "content"
+        FROM community
+        ]]>
+	</select>
+    <select id="selectACommunity" resultType="com.example.hesuCRUD.model.Community">
+		<![CDATA[
+        SELECT no AS "no", title AS "title", content AS "content"
+        FROM community
+        WHERE no = #{no}
+        ]]>
+	</select>
+    <update id="updateCommunity" parameterType="hashmap">
+		<![CDATA[
+        UPDATE community
+        SET title   = #{title},
+            content = #{content}
+        WHERE no = #{no}
+        ]]>
+	</update>
+    <delete id="deleteCommunity">
+	<![CDATA[
+        DELETE
+        FROM community
+        WHERE no = #{no}
+        ]]>
+	</delete>
+</mapper>
+

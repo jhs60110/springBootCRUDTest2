@@ -1,0 +1,39 @@
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+#detailButton{
+    font-size: 13px;
+    color: #fff;
+    background: #26be92;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 18px 5px;
+}
+/*h3{*/
+/*    padding-top: 5%;*/
+/*}*/
+/*hr{*/
+/*    padding-bottom: 3%;*/
+/*}*/
+
+
