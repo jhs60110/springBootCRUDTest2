@@ -43,7 +43,7 @@ public class CommunityController {
     @PostMapping("/insert")
     public String insertCommunity(@RequestParam("title") String title, @RequestParam("content") String content) {
         communityService.insertCommunity(title, content);
-        return "redirect:/hesu/all";
+        return "redirect:/four/all";
     }
 
     @GetMapping("/update")
@@ -57,14 +57,14 @@ public class CommunityController {
     @PostMapping("/update")
     public String updateCommunity(@RequestParam("no") int no, @RequestParam("title") String title, @RequestParam("content") String content) {
         communityService.updateCommunity(no, title, content);
-        return "redirect:/hesu/all";
+        return "redirect:/four/all";
     }
 
     @GetMapping("/delete")
     public String deleteCommunity(@RequestParam("no") String no) {
         System.out.println(no);
         communityService.deleteCommunity(Integer.parseInt(no));
-        return "redirect:/hesu/all";
+        return "redirect:/four/all";
     }
 
 }
